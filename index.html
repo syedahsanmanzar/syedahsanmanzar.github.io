@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Syed Ahsan Manzar — AI, automation and technology portfolio.">
 
     <title>Syed Ahsan Manzar | AI & Automation</title>
 
-    <meta name="description" content="Syed Ahsan Manzar — Student exploring AI, automation, and technology.">
-
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -20,58 +28,162 @@
         }
 
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0a0a0a;
-            color: #f5f5f5;
-            line-height: 1.6;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #050507;
+            color: #f5f5f7;
+
+            overflow-x: hidden;
         }
 
         a {
-            color: inherit;
             text-decoration: none;
+            color: inherit;
         }
 
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
+        ::selection {
+            background: #7c3aed;
+            color: white;
         }
 
-        /* Navigation */
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
+            z-index: -3;
+        }
+
+
+        .glow {
+            position: fixed;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            filter: blur(120px);
+
+            opacity: 0.12;
+
+            pointer-events: none;
+
+            z-index: -2;
+        }
+
+        .glow.one {
+            background: #7c3aed;
+            top: -200px;
+            left: -150px;
+        }
+
+        .glow.two {
+            background: #06b6d4;
+            right: -200px;
+            top: 400px;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
 
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #222;
-            z-index: 1000;
-        }
 
-        .nav-container {
-            height: 70px;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            height: 76px;
+
             display: flex;
             align-items: center;
+
+            z-index: 100;
+
+            background:
+                rgba(5,5,7,0.7);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-inner {
+            width: min(1150px, 90%);
+
+            margin: auto;
+
+            display: flex;
+
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 22px;
-            font-weight: bold;
+            font-weight: 800;
+
+            font-size: 21px;
+
+            letter-spacing: -0.5px;
         }
 
         .logo span {
-            color: #7c3aed;
+            color: #8b5cf6;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+
+            gap: 32px;
+
             list-style: none;
         }
 
         .nav-links a {
-            color: #aaa;
+            color: #8f8f98;
+
+            font-size: 14px;
+
             transition: 0.3s;
         }
 
@@ -79,403 +191,1460 @@
             color: white;
         }
 
-        /* Hero */
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 70px;
-        }
 
-        .hero-content {
-            width: 100%;
-        }
+            width: min(1150px, 90%);
 
-        .hero-tag {
-            display: inline-block;
-            padding: 8px 16px;
-            border: 1px solid #333;
-            border-radius: 30px;
-            color: #aaa;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        h1 {
-            font-size: clamp(45px, 8vw, 85px);
-            line-height: 1.05;
-            margin-bottom: 20px;
-        }
-
-        .gradient {
-            background: linear-gradient(90deg, #8b5cf6, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            max-width: 650px;
             margin: auto;
-            color: #aaa;
-            font-size: 20px;
+
+            display: grid;
+
+            grid-template-columns:
+                1.1fr
+                0.9fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            padding-top: 100px;
         }
 
-        .buttons {
-            margin-top: 35px;
+
+        .status {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 8px 13px;
+
+            border-radius: 999px;
+
+            background:
+                rgba(124,58,237,0.08);
+
+            border:
+                1px solid rgba(139,92,246,0.25);
+
+            color: #b9a3ff;
+
+            font-size: 12px;
+
+            font-family: monospace;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            box-shadow:
+                0 0 12px #22c55e;
+        }
+
+
+        .hero h1 {
+            font-size:
+                clamp(50px, 7vw, 88px);
+
+            line-height: 0.98;
+
+            letter-spacing: -5px;
+
+            max-width: 850px;
+
+            margin-bottom: 30px;
+        }
+
+        .gradient-text {
+            background:
+                linear-gradient(
+                    90deg,
+                    #a78bfa,
+                    #7c3aed,
+                    #06b6d4
+                );
+
+            -webkit-background-clip: text;
+
+            -webkit-text-fill-color:
+                transparent;
+        }
+
+
+        .hero-description {
+            color: #8f8f98;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            max-width: 620px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-buttons {
             display: flex;
-            justify-content: center;
-            gap: 15px;
+
+            gap: 13px;
+
             flex-wrap: wrap;
         }
 
-        .button {
-            padding: 13px 24px;
-            border-radius: 8px;
-            border: 1px solid #333;
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding: 13px 20px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
             transition: 0.3s;
+
+            border:
+                1px solid rgba(255,255,255,0.1);
         }
 
-        .button.primary {
+        .btn-primary {
             background: white;
+
             color: black;
         }
 
-        .button:hover {
+        .btn-secondary {
+            background:
+                rgba(255,255,255,0.03);
+
+            color: #ddd;
+        }
+
+        .btn:hover {
             transform: translateY(-3px);
         }
 
-        /* Sections */
+
+        /* =========================
+           AI TERMINAL
+        ========================= */
+
+        .terminal {
+            background:
+                rgba(12,12,17,0.8);
+
+            border:
+                1px solid rgba(255,255,255,0.09);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 30px 100px
+                rgba(0,0,0,0.45),
+
+                0 0 80px
+                rgba(124,58,237,0.08);
+
+            overflow: hidden;
+
+            transform:
+                perspective(1000px)
+                rotateY(-4deg);
+
+            transition: 0.5s;
+        }
+
+        .terminal:hover {
+            transform:
+                perspective(1000px)
+                rotateY(0deg)
+                translateY(-5px);
+        }
+
+
+        .terminal-top {
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 0 16px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.06);
+        }
+
+        .terminal-dot {
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #333;
+        }
+
+        .terminal-title {
+            margin-left: 8px;
+
+            color: #666;
+
+            font-family: monospace;
+
+            font-size: 11px;
+        }
+
+
+        .terminal-body {
+            padding: 27px;
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                monospace;
+
+            font-size: 13px;
+
+            line-height: 2;
+        }
+
+        .code-comment {
+            color: #555;
+        }
+
+        .code-purple {
+            color: #a78bfa;
+        }
+
+        .code-cyan {
+            color: #67e8f9;
+        }
+
+        .code-green {
+            color: #86efac;
+        }
+
+        .code-white {
+            color: #ddd;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
 
         section {
-            padding: 100px 0;
+            width: min(1150px, 90%);
+
+            margin: auto;
+
+            padding: 130px 0;
+        }
+
+
+        .section-label {
+            color: #8b5cf6;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 14px;
         }
 
         .section-title {
-            font-size: 38px;
-            margin-bottom: 15px;
-        }
+            font-size: clamp(35px, 5vw, 55px);
 
-        .section-description {
-            color: #888;
-            max-width: 650px;
-            margin-bottom: 45px;
-        }
+            letter-spacing: -2px;
 
-        /* About */
-
-        .about {
-            max-width: 750px;
-        }
-
-        .about p {
-            color: #aaa;
-            font-size: 18px;
-        }
-
-        /* Skills */
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .skill {
-            padding: 12px 18px;
-            border: 1px solid #292929;
-            border-radius: 8px;
-            color: #ccc;
-            background: #111;
-        }
-
-        /* Projects */
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .project {
-            padding: 28px;
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 14px;
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-            border-color: #444;
-        }
-
-        .project h3 {
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            color: #888;
             margin-bottom: 20px;
         }
 
-        .project-link {
+        .section-description {
+            color: #777;
+
+            max-width: 650px;
+
+            line-height: 1.8;
+
+            font-size: 16px;
+
+            margin-bottom: 50px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .glass-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
+            padding: 32px;
+
+            transition: 0.3s;
+        }
+
+        .glass-card:hover {
+            border-color:
+                rgba(139,92,246,0.35);
+
+            transform:
+                translateY(-4px);
+        }
+
+        .glass-card h3 {
+            margin-bottom: 13px;
+
+            font-size: 19px;
+        }
+
+        .glass-card p {
+            color: #85858d;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 13px;
+        }
+
+        .skill {
+            padding: 21px;
+
+            background:
+                rgba(255,255,255,0.025);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            border-radius: 13px;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            border-color:
+                rgba(139,92,246,0.35);
+
+            background:
+                rgba(124,58,237,0.07);
+
+            transform:
+                translateY(-3px);
+        }
+
+        .skill-icon {
+            font-size: 22px;
+
+            margin-bottom: 13px;
+        }
+
+        .skill strong {
+            display: block;
+
+            margin-bottom: 5px;
+        }
+
+        .skill span {
+            color: #666;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .project {
+            position: relative;
+
+            min-height: 300px;
+
+            padding: 28px;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101016,
+                    #09090c
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            transition: 0.35s;
+        }
+
+        .project::before {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            right: -80px;
+            top: -80px;
+
+            border-radius: 50%;
+
+            background:
+                #7c3aed;
+
+            filter: blur(70px);
+
+            opacity: 0.12;
+        }
+
+        .project:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(139,92,246,0.4);
+        }
+
+        .project-number {
+            color: #555;
+
+            font-family: monospace;
+
+            font-size: 12px;
+
+            margin-bottom: 60px;
+        }
+
+        .project h3 {
+            font-size: 20px;
+
+            margin-bottom: 12px;
+        }
+
+        .project p {
+            color: #777;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .project-status {
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 28px;
+
             color: #8b5cf6;
+
+            font-family: monospace;
+
+            font-size: 11px;
         }
 
-        /* Contact */
 
-        .contact-box {
-            padding: 40px;
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 14px;
-            max-width: 700px;
+        /* =========================
+           JOURNEY
+        ========================= */
+
+        .timeline {
+            border-left:
+                1px solid rgba(255,255,255,0.1);
+
+            margin-left: 8px;
         }
 
-        .contact-box p {
-            color: #999;
-            margin-bottom: 25px;
+        .timeline-item {
+            position: relative;
+
+            padding:
+                0 0 50px 35px;
         }
 
-        /* Footer */
+        .timeline-item::before {
+            content: "";
+
+            position: absolute;
+
+            left: -5px;
+
+            top: 4px;
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #8b5cf6;
+
+            box-shadow:
+                0 0 20px
+                rgba(139,92,246,0.8);
+        }
+
+        .timeline-item span {
+            color: #8b5cf6;
+
+            font-family: monospace;
+
+            font-size: 11px;
+        }
+
+        .timeline-item h3 {
+            margin: 7px 0;
+        }
+
+        .timeline-item p {
+            color: #777;
+
+            max-width: 650px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            position: relative;
+
+            text-align: center;
+
+            padding:
+                80px 30px;
+
+            border-radius: 24px;
+
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(124,58,237,0.15),
+                    transparent 65%
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+        }
+
+        .contact h2 {
+            font-size:
+                clamp(38px, 6vw, 65px);
+
+            letter-spacing: -3px;
+
+            margin-bottom: 18px;
+        }
+
+        .contact p {
+            color: #777;
+
+            max-width: 550px;
+
+            margin:
+                0 auto 30px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid #222;
-            padding: 30px 0;
-            color: #666;
+            padding: 35px 0;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+
             text-align: center;
+
+            color: #555;
+
+            font-family: monospace;
+
+            font-size: 11px;
         }
 
-        /* Mobile */
 
-        @media (max-width: 700px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+
+                padding-top: 130px;
+
+                gap: 50px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .terminal {
+                transform: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
             .nav-links {
                 display: none;
             }
 
-            .hero p {
-                font-size: 17px;
+            .hero {
+                width: 88%;
             }
 
             section {
-                padding: 70px 0;
+                width: 88%;
+
+                padding: 90px 0;
             }
 
-            .section-title {
-                font-size: 30px;
+            .hero h1 {
+                font-size: 48px;
             }
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .terminal-body {
+                font-size: 11px;
+
+                padding: 20px;
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- Navigation -->
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
     <nav>
-        <div class="container nav-container">
-            <div class="logo">Ahsan<span>.</span></div>
+
+        <div class="nav-inner">
+
+            <a href="#" class="logo">
+                Ahsan<span>.</span>
+            </a>
 
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Stack</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#journey">Journey</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
             </ul>
+
         </div>
+
     </nav>
 
 
-    <!-- Hero -->
+    <!-- =========================
+         HERO
+    ========================= -->
 
-    <header class="hero">
-        <div class="container hero-content">
+    <main>
 
-            <div class="hero-tag">
-                Student • AI • Automation
-            </div>
+        <div class="hero">
 
-            <h1>
-                Hi, I'm <span class="gradient">Ahsan.</span>
-            </h1>
+            <div>
 
-            <p>
-                I'm a student exploring artificial intelligence,
-                automation, and modern technology.
-                I'm currently building my skills and creating projects
-                to solve real-world problems.
-            </p>
+                <div class="status">
 
-            <div class="buttons">
-                <a class="button primary" href="#projects">
-                    View My Work
-                </a>
+                    <span class="status-dot"></span>
 
-                <a class="button" href="#contact">
-                    Contact Me
-                </a>
-            </div>
+                    SYSTEM ONLINE
+                    ·
+                    LEARNING MODE
 
-        </div>
-    </header>
+                </div>
 
 
-    <!-- About -->
+                <h1>
 
-    <section id="about">
-        <div class="container">
+                    Building the
+                    <span class="gradient-text">
+                        future
+                    </span>
+                    with AI.
 
-            <h2 class="section-title">About Me</h2>
+                </h1>
 
-            <p class="section-description">
-                A little about who I am and what I'm interested in.
-            </p>
 
-            <div class="about">
+                <p class="hero-description">
 
-                <p>
-                    I'm Syed Ahsan Manzar, a student interested in
-                    artificial intelligence, automation, and technology.
-                    I'm currently learning how AI systems work and how
-                    technology can be used to automate tasks and solve
-                    practical problems.
+                    I'm Syed Ahsan Manzar — a student exploring
+                    artificial intelligence, automation, and
+                    intelligent systems.
+
+                    I'm learning by building, experimenting,
+                    and turning ideas into practical technology.
+
                 </p>
 
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#projects"
+                        class="btn btn-primary"
+                    >
+
+                        Explore Projects
+                        →
+
+                    </a>
+
+
+                    <a
+                        href="https://github.com/syedahsanmanzar"
+                        target="_blank"
+                        class="btn btn-secondary"
+                    >
+
+                        GitHub
+                        ↗
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- TERMINAL -->
+
+            <div class="terminal">
+
+                <div class="terminal-top">
+
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+
+                    <span class="terminal-title">
+                        ahsan@ai-lab:~
+                    </span>
+
+                </div>
+
+
+                <div class="terminal-body">
+
+                    <div class="code-comment">
+                        // current mission
+                    </div>
+
+                    <br>
+
+                    <div>
+                        <span class="code-purple">
+                            const
+                        </span>
+
+                        <span class="code-white">
+                            developer
+                        </span>
+
+                        =
+                        <span class="code-cyan">
+                            {
+                        </span>
+                    </div>
+
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="code-white">
+                            focus:
+                        </span>
+
+                        <span class="code-green">
+                            "AI & Automation",
+                        </span>
+                    </div>
+
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="code-white">
+                            status:
+                        </span>
+
+                        <span class="code-green">
+                            "learning",
+                        </span>
+                    </div>
+
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="code-white">
+                            mindset:
+                        </span>
+
+                        <span class="code-green">
+                            "build & iterate",
+                        </span>
+                    </div>
+
+
+                    <div>
+                        &nbsp;&nbsp;
+                        <span class="code-white">
+                            goal:
+                        </span>
+
+                        <span class="code-green">
+                            "solve real problems"
+                        </span>
+                    </div>
+
+
+                    <div>
+
+                        <span class="code-cyan">
+                            };
+                        </span>
+
+                    </div>
+
+
+                    <br>
+
+
+                    <div class="code-comment">
+                        // initializing next project...
+                    </div>
+
+
+                    <div>
+
+                        <span class="code-purple">
+                            await
+                        </span>
+
+                        <span class="code-cyan">
+                            build()
+                        </span>
+
+                        ;
+
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
-    </section>
 
 
-    <!-- Skills -->
+        <!-- =========================
+             ABOUT
+        ========================= -->
 
-    <section id="skills">
-        <div class="container">
+        <section id="about">
 
-            <h2 class="section-title">Skills & Interests</h2>
+            <div class="section-label">
+                01 / ABOUT
+            </div>
+
+            <h2 class="section-title">
+                Curious by nature.
+                <br>
+                Building by choice.
+            </h2>
 
             <p class="section-description">
-                Technologies and areas I'm currently learning.
+
+                I'm currently developing my understanding of
+                AI and modern software systems. My focus is on
+                learning how intelligent tools can automate work,
+                improve workflows, and solve useful problems.
+
             </p>
+
+
+            <div class="about-grid">
+
+                <div class="glass-card">
+
+                    <h3>
+                        AI & Intelligence
+                    </h3>
+
+                    <p>
+
+                        Exploring large language models,
+                        AI applications, prompting, and
+                        intelligent workflows.
+
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card">
+
+                    <h3>
+                        Automation
+                    </h3>
+
+                    <p>
+
+                        Learning how APIs, scripts, and
+                        AI systems can connect together
+                        to automate repetitive work.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SKILLS
+        ========================= -->
+
+        <section id="skills">
+
+            <div class="section-label">
+                02 / TECHNOLOGY
+            </div>
+
+            <h2 class="section-title">
+                My current stack.
+            </h2>
+
+            <p class="section-description">
+
+                Technologies and concepts I'm currently
+                learning and experimenting with.
+
+            </p>
+
 
             <div class="skills">
 
-                <div class="skill">Artificial Intelligence</div>
-                <div class="skill">AI Automation</div>
-                <div class="skill">Python</div>
-                <div class="skill">LLMs</div>
-                <div class="skill">APIs</div>
-                <div class="skill">Git & GitHub</div>
-                <div class="skill">Problem Solving</div>
-                <div class="skill">Technology</div>
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ◈
+                    </div>
+
+                    <strong>
+                        Artificial Intelligence
+                    </strong>
+
+                    <span>
+                        Learning
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ◎
+                    </div>
+
+                    <strong>
+                        LLMs
+                    </strong>
+
+                    <span>
+                        Exploring
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ⌘
+                    </div>
+
+                    <strong>
+                        Python
+                    </strong>
+
+                    <span>
+                        Learning
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ⚡
+                    </div>
+
+                    <strong>
+                        Automation
+                    </strong>
+
+                    <span>
+                        Exploring
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ↗
+                    </div>
+
+                    <strong>
+                        APIs
+                    </strong>
+
+                    <span>
+                        Learning
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ◉
+                    </div>
+
+                    <strong>
+                        Git & GitHub
+                    </strong>
+
+                    <span>
+                        Using
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        +
+                    </div>
+
+                    <strong>
+                        Problem Solving
+                    </strong>
+
+                    <span>
+                        Developing
+                    </span>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <div class="skill-icon">
+                        ∞
+                    </div>
+
+                    <strong>
+                        AI Ops
+                    </strong>
+
+                    <span>
+                        Exploring
+                    </span>
+
+                </div>
 
             </div>
 
-        </div>
-    </section>
+        </section>
 
 
-    <!-- Projects -->
+        <!-- =========================
+             PROJECTS
+        ========================= -->
 
-    <section id="projects">
-        <div class="container">
+        <section id="projects">
 
-            <h2 class="section-title">Projects</h2>
+            <div class="section-label">
+                03 / PROJECTS
+            </div>
+
+            <h2 class="section-title">
+                Things I'm building.
+            </h2>
 
             <p class="section-description">
-                My projects and experiments will appear here as I build them.
+
+                This section will grow as I turn what I learn
+                into real projects and experiments.
+
             </p>
+
 
             <div class="projects">
 
                 <div class="project">
 
-                    <h3>AI Learning Journey</h3>
+                    <div class="project-number">
+                        PROJECT_001
+                    </div>
+
+                    <h3>
+                        AI Learning Lab
+                    </h3>
 
                     <p>
-                        Exploring artificial intelligence, large language
-                        models, automation, and practical AI applications.
+
+                        Experiments with AI models,
+                        prompts, workflows, and practical
+                        AI applications.
+
                     </p>
 
-                    <span class="project-link">
-                        Coming soon →
-                    </span>
+                    <div class="project-status">
+                        STATUS: BUILDING
+                    </div>
 
                 </div>
 
 
                 <div class="project">
 
-                    <h3>Automation Projects</h3>
+                    <div class="project-number">
+                        PROJECT_002
+                    </div>
+
+                    <h3>
+                        Automation Lab
+                    </h3>
 
                     <p>
-                        Building small automation projects to understand
-                        how repetitive tasks can be improved with technology.
+
+                        Small experiments exploring how
+                        APIs, scripts, and AI can automate
+                        repetitive tasks.
+
                     </p>
 
-                    <span class="project-link">
-                        Coming soon →
-                    </span>
+                    <div class="project-status">
+                        STATUS: EXPLORING
+                    </div>
 
                 </div>
 
 
                 <div class="project">
 
-                    <h3>My First AI Project</h3>
+                    <div class="project-number">
+                        PROJECT_003
+                    </div>
+
+                    <h3>
+                        First AI Product
+                    </h3>
 
                     <p>
-                        A future project where I will apply what I'm learning
-                        to solve a real-world problem.
+
+                        A future project focused on solving
+                        a practical problem using AI.
+
                     </p>
 
-                    <span class="project-link">
-                        Coming soon →
-                    </span>
+                    <div class="project-status">
+                        STATUS: PLANNING
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
-    </section>
+        </section>
 
 
-    <!-- Contact -->
+        <!-- =========================
+             JOURNEY
+        ========================= -->
 
-    <section id="contact">
-        <div class="container">
+        <section id="journey">
 
-            <h2 class="section-title">Let's Connect</h2>
+            <div class="section-label">
+                04 / JOURNEY
+            </div>
 
-            <div class="contact-box">
+            <h2 class="section-title">
+                Learning in public.
+            </h2>
+
+            <p class="section-description">
+
+                I'm at the beginning of my journey,
+                so this portfolio will evolve alongside
+                my skills and projects.
+
+            </p>
+
+
+            <div class="timeline">
+
+                <div class="timeline-item">
+
+                    <span>
+                        NOW
+                    </span>
+
+                    <h3>
+                        Exploring AI
+                    </h3>
+
+                    <p>
+
+                        Learning the fundamentals of
+                        artificial intelligence, LLMs,
+                        automation, and modern tools.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span>
+                        NEXT
+                    </span>
+
+                    <h3>
+                        Build real projects
+                    </h3>
+
+                    <p>
+
+                        Turning concepts into useful
+                        projects that demonstrate practical
+                        skills.
+
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <span>
+                        FUTURE
+                    </span>
+
+                    <h3>
+                        AI & Automation
+                    </h3>
+
+                    <p>
+
+                        Continue developing toward building
+                        reliable AI-powered systems and
+                        automated workflows.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT
+        ========================= -->
+
+        <section id="contact">
+
+            <div class="contact">
+
+                <div class="section-label">
+                    05 / CONTACT
+                </div>
+
+                <h2>
+                    Let's build something.
+                </h2>
 
                 <p>
-                    I'm always interested in learning, building,
-                    and connecting with people interested in technology.
+
+                    I'm learning, experimenting, and
+                    looking for interesting problems to solve.
+
+                    You can follow my work on GitHub.
+
                 </p>
 
-                <a class="button primary"
-                   href="https://github.com/syedahsanmanzar"
-                   target="_blank">
-                    Visit My GitHub
+
+                <a
+                    href="https://github.com/syedahsanmanzar"
+                    target="_blank"
+                    class="btn btn-primary"
+                >
+
+                    Open GitHub
+                    ↗
+
                 </a>
 
             </div>
 
-        </div>
-    </section>
+        </section>
+
+    </main>
 
 
-    <!-- Footer -->
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
-        <div class="container">
-            © 2026 Syed Ahsan Manzar. Built with HTML & CSS.
-        </div>
+
+        SYED AHSAN MANZAR
+        ·
+        AI / AUTOMATION / TECHNOLOGY
+
     </footer>
+
 
 </body>
 </html>
